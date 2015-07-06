@@ -24,6 +24,16 @@
 		</p>
 		
 		<%= link_to "Write a Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+		
+		<br />
+		<br />
+		<iframe
+		  width="230"
+		  height="230"
+		  frameborder="0" style="border:0"
+		  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBp5gZDUO_A3L63vQhkZs3nAOdnG08SiRQ&zoom=14
+		    &q=<%= @restaurant.address.parameterize %>" allowfullscreen>
+		</iframe>
   </div>
   
   
@@ -69,7 +79,7 @@
   </div>
 </div>
 
-
+<!-- check if user is signed in and an admin and only show the "Edit" link to admin users -->
 <% if user_signed_in? && current_user.admin? %>
 	<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link" %> | 
 <% end %>
